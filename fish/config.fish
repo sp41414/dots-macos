@@ -6,7 +6,7 @@ if status is-interactive
     set fish_greeting
 end
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+fish_add_path /opt/homebrew/bin
 
 starship init fish | source
 
