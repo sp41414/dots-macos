@@ -39,6 +39,8 @@ defaults write com.apple.Dock autohide -bool true
 defaults write com.apple.Dock autohide-delay -float 1000
 defaults write com.apple.universalaccess reduceMotion -bool true
 
+echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/fish
 
 killall SystemUIServer
 killall Dock
