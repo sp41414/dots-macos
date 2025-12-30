@@ -1,29 +1,28 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+DIRS=(
+    "$HOME/documents"
+    "$HOME/projects"
+    # "$HOME"
+)
 
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/projects ~/Documents -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(fd . "${DIRS[@]}" --type=dir --max-depth=1 --full-path --base-directory $HOME |
+        sed "s|^$HOME/||" |
+        sk --margin 10% --color="bw")
+
+    [[ $selected ]] && selected="$HOME/$selected"
 fi
 
-if [[ -z $selected ]]; then
-    exit 0
-fi
+[[ ! $selected ]] && exit 0
 
 selected_name=$(basename "$selected" | tr . _)
-tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
-    exit 0
+if ! tmux has-session -t "$selected_name"; then
+    tmux new-session -ds "$selected_name" -c "$selected"
+    tmux select-window -t "$selected_name:1"
 fi
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
-fi
-
-if [[ -z $TMUX ]]; then
-    tmux attach -t $selected_name
-else
-    tmux switch-client -t $selected_name
-fi
+tmux switch-client -t "$selected_name"

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+SITES=(studio.youtube.com www.youtube.com www.reddit.com www.x.com
+    www.linkedin.com www.privatemail.com chatgpt.com openai.com
+    claude.ai anthropic.com gemini.google.com notebooklm.google.com
+    grok.com mistral.ai perplexity.ai deepseek.com)
+
+if sudo hostess has "${SITES[0]}" &>/dev/null; then
+    for s in "${SITES[@]}"; do sudo hostess rm "$s" &>/dev/null; done
+else
+    for s in "${SITES[@]}"; do sudo hostess add "$s" 127.0.0.1 &>/dev/null; done
+fi

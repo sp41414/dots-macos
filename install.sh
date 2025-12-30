@@ -22,6 +22,8 @@ echo "Installing Homebrew package manager..."
 
 echo "Installing brew packages..."
 brew bundle
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 echo "Enabling brew services..."
 brew services start postgresql
 brew services start redis
