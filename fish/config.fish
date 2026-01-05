@@ -51,3 +51,6 @@ set -x MANPAGER "nvim +Man!"
 set -x NODE_ENV development
 
 fish_add_path $HOME/go/bin/
+
+# Generated for envman. Do not edit.
+test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
