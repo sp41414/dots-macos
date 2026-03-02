@@ -1,7 +1,6 @@
 #!/bin/bash
 
-SITES=(studio.youtube.com www.youtube.com www.reddit.com www.x.com
-    www.linkedin.com www.privatemail.com chatgpt.com openai.com
+SITES=(chatgpt.com openai.com
     claude.ai anthropic.com gemini.google.com notebooklm.google.com
     grok.com mistral.ai perplexity.ai deepseek.com)
 

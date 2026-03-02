@@ -22,6 +22,9 @@ echo "Installing Homebrew package manager..."
 
 echo "Installing brew packages..."
 brew bundle
+# Nvm
+fisher install jorgebucaran/nvm.fish
+nvm install lts
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 echo "Enabling brew services..."
@@ -41,7 +44,6 @@ defaults write com.apple.Dock autohide -bool true
 defaults write com.apple.Dock autohide-delay -float 1000
 defaults write com.apple.universalaccess reduceMotion -bool true
 defaults write -g com.apple.swipescrolldirection -bool false
-
 
 killall SystemUIServer
 killall Dock
