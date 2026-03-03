@@ -22,6 +22,9 @@ echo "Installing Homebrew package manager..."
 
 echo "Installing brew packages..."
 brew bundle
+# Java
+# Link the homebrew openjdk to where the java binary expects it to be
+sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 # Nvm
 fisher install jorgebucaran/nvm.fish
 nvm install lts
