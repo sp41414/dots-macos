@@ -38,6 +38,7 @@ brew services start dbus
 echo "Configuring MacOS..."
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder AppleShowAllFiles YES
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
