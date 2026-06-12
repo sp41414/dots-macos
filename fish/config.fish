@@ -57,6 +57,7 @@ end
 set -x RIPGREP_CONFIG_PATH /Users/$USER/.config/ripgrep/rgrc
 set -x MANPAGER "nvim +Man!"
 set -x NODE_ENV development
+set -x CMAKE_GENERATOR Ninja
 
 fish_add_path $HOME/go/bin/
 
