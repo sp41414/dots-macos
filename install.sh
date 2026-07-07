@@ -21,6 +21,8 @@ echo "Installing Homebrew package manager..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Installing brew packages..."
+brew trust oven-sh/bun
+brew trust acsandmann/tap
 brew bundle
 # Java
 # Link the homebrew openjdk to where the java binary expects it to be
@@ -34,6 +36,8 @@ echo "Enabling brew services..."
 brew services start postgresql
 brew services start redis
 brew services start dbus
+rift service install
+rift service start
 
 echo "Configuring MacOS..."
 defaults write com.apple.finder ShowPathbar -bool true
